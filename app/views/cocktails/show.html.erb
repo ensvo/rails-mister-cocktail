@@ -1,0 +1,8 @@
+<div class="container mt-4">
+	<h1><%= @cocktail.name %></h1>
+	<% @doses.each do |dose| %>
+		<%= dose.ingredient.name %>
+		<%= dose.description %>
+		<%= link_to 'Delete', dose_path(dose), method: :delete, data: { confirm: "Delete #{dose.ingredient.name}?" } %>
+	<% end %>
+</div>
