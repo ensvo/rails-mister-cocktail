@@ -1,18 +1,22 @@
-<div class="container mt-4">
-	<h1>Cocktails</h1>
-	<div class="row">
-		<% @cocktails.each do |cocktail| %>
-			<div class="card-trip">
-			  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-			  <div class="card-trip-infos">
-			    <div>
-			      <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-			      <p>Short description here!</p>
-			    </div>
-			    <h2 class="card-trip-pricing">£99.99</h2>
-			    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-			  </div>
+<%= render 'shared/index_banner' %>
+
+<div class="container my-4" id="collection">
+	<div class="container card-deck">
+		<div class="row">
+			<% @cocktails.each do |cocktail| %>
+			<div class="col-4">
+				<div class="card bg-dark text-white my-2">
+				  <% if cocktail.image_url != "" %>
+				    <img class="card-img-top fit-image" src="<%= cocktail.image_url %>" alt="Card image cap">
+			    <% else %>
+			    	<img class="card-img-top fit-image" src="https://i.imgur.com/8iPM8iD.jpg" alt="Card image cap">
+			    <% end %>
+				  <div class="card-img-overlay d-flex justify-content-center">
+				    <h3 class="card-title text-center white-link m-auto"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+				  </div>
+				</div>
 			</div>
-		<% end %>	
+			<% end %>
+		</div>
 	</div>
 </div>
