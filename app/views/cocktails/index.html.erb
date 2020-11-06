@@ -9,7 +9,7 @@
 				  <% if cocktail.image_url != "" %>
 				    <img class="card-img-top fit-image" src="<%= cocktail.image_url %>" alt="Card image cap">
 				  <% elsif cocktail.photo.attached? %>
-				  	<img class="<%= cl_image_tag @cocktail.photo.key, crop: :fill %>"
+				  	<img class="<%= cl_image_tag @cocktail.photo.key, crop: :fill %>">
 			    <% else %>
 			    	<img class="card-img-top fit-image" src="https://i.imgur.com/8iPM8iD.jpg" alt="Card image cap">
 			    <% end %>
