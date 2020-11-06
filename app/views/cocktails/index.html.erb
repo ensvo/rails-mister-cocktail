@@ -7,11 +7,11 @@
 			<div class="col-4">
 				<div class="card bg-dark text-white my-2">
 				  <% if cocktail.image_url != "" %>
-				    <img class="card-img-top fit-image" src="<%= cocktail.image_url %>" alt="Card image cap">
+				   <%= image_tag cocktail.image_url, class: "card-img-top fit-image" %>
 				  <% elsif cocktail.photo.attached? %>
 				  	<%= cl_image_tag(cocktail.photo.key, width: 400, height: 300, crop: :fill, class: "card-img-top fit-image") %>
 			    <% else %>
-			    	<img class="card-img-top fit-image" src="https://i.imgur.com/8iPM8iD.jpg" alt="Card image cap">
+			    	<%= image_tag "https://i.imgur.com/8iPM8iD.jpg", class: "card-img-top fit-image" %>
 			    <% end %>
 				  <div class="card-img-overlay d-flex justify-content-center">
 				    <h3 class="card-title text-center white-link m-auto"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
