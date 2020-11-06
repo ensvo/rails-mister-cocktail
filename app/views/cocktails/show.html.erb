@@ -11,14 +11,14 @@
 
 	<div class="container my-4 p-4 border">
 		<div class="border-bottom">
-		<h1><%= @cocktail.name %></h1>
+		<h1 class="darker-green-text font-weight-bold"><%= @cocktail.name %></h1>
 		</div> 
 		<div class="my-4">
 			<ul>
 			<% @doses.each do |dose| %>
 			<li>
 				<%= dose.description %> of 
-				<%= dose.ingredient.name %>
+				<span class="font-weight-bold"><%= dose.ingredient.name %></span>
 				<%= link_to dose_path(dose), method: :delete, data: { confirm: "Delete #{dose.ingredient.name}?" } do %>
 					<i class="fas fa-trash-alt accent-link pl-2"></i>
 				<% end %>
